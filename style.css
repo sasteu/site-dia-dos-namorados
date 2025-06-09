@@ -1,0 +1,190 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(to top, #bdf2d0, #eafff1); /* fundo verde claro */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-family: sans-serif;
+}
+
+.login-box {
+  z-index: 2;
+  background: white;
+  padding: 25px 20px;
+  border-radius: 15px;
+  box-shadow:
+    0 0 20px rgba(76, 175, 80, 0.2),
+    0 0 40px rgba(76, 175, 80, 0.15),
+    0 0 60px rgba(76, 175, 80, 0.1);
+  border: 1px solid #d6f5dc;
+  text-align: center;
+  width: 90%;
+  max-width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-box:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 25px rgba(76, 175, 80, 0.3),
+    0 0 50px rgba(76, 175, 80, 0.2),
+    0 0 80px rgba(76, 175, 80, 0.15);
+}
+
+.login-box h2 {
+  font-size: 16px;
+  color: #2e7d32;
+  margin-bottom: 15px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.login-box input {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 8px;
+  border: 1px solid #a5d6a7;
+  border-radius: 5px;
+}
+
+.login-box button {
+  padding: 8px 15px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.login-box button:hover {
+  background: #388e3c;
+  transform: scale(1.05);
+}
+
+#error-message {
+  color: #c62828;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+
+.hearts {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: red;
+  transform: rotate(45deg);
+  animation: float 6s infinite;
+}
+
+.heart::before,
+.heart::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: red;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+
+.heart::after {
+  left: -10px;
+  top: 0;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+.tooltip-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.tooltip-container input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 8px;
+  border: 1px solid #a5d6a7;
+  border-radius: 5px;
+}
+
+.tooltip {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: none;
+  text-align: center;
+  margin-top: 4px;
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-5px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  max-width: 250px;
+  z-index: 3;
+}
+
+/* Mostrar a dica ao passar o mouse */
+.tooltip-container:hover .tooltip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 480px) {
+  .login-box h2 {
+    font-size: 14px;
+  }
+
+  .tooltip {
+    font-size: 11px;
+    padding: 5px 8px;
+  }
+
+  .login-box {
+    padding: 20px 16px;
+  }
+}

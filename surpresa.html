@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Surpresa 💖</title>
+  <link rel="stylesheet" href="surpresa.css">
+</head>
+<body>
+  <div class="hearts"></div>
+  <h1>Te amo, minha vida! 🌹</h1>
+
+  <!-- Carrossel de fotos -->
+  <div class="carousel">
+    <img id="carousel-img" src="fotos/foto1.jpg" alt="nossa foto">
+  </div>
+
+  <!-- Contador de tempo -->
+  <div class="counter" id="time-counter">
+   💚 Eu te amo há:
+  </div>
+
+  <!-- Mensagem final -->
+  <div class="message">
+    A cada dia que passa, meu coração se enche mais de carinho e admiração por você. Cada sorriso seu <br><br>
+    ilumina o meu mundo, e cada abraço me faz sentir que estou exatamente onde deveria estar. Você é a<br><br>
+    razão dos meus melhores pensamentos, e tudo ao seu lado se torna mais bonito e significativo. Eu te<br><br>
+    amo para sempre 💘<br><br>
+  </div>
+
+  <script>
+    // Lista de fotos
+    const fotos = ['fotos/foto1.jpg', 'fotos/foto2.jpg', 'fotos/foto3.jpg', 'fotos/foto4.jpg', 'fotos/foto5.jpg', 'fotos/foto6.jpg', 'fotos/foto7.jpg']; // troque pelos nomes reais
+    let index = 0;
+
+    function trocarFoto() {
+      index = (index + 1) % fotos.length;
+      document.getElementById('carousel-img').src = fotos[index];
+    }
+
+    setInterval(trocarFoto, 3000); // troca a cada 3 segundos
+
+    // Contador de tempo juntos
+    const inicio = new Date('2023-10-10T22:00:00'); // ajuste aqui!
+    const contador = document.getElementById('time-counter');
+
+    function atualizarTempo() {
+      const agora = new Date();
+      const diff = agora - inicio;
+
+      const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutos = Math.floor((diff / (1000 * 60)) % 60);
+      const segundos = Math.floor((diff / 1000) % 60);
+
+      contador.innerText = `❤️‍🔥 Eu te amo há: ${dias} dias, ${horas}h ${minutos}m ${segundos}s ❤️‍🔥`;
+    }
+
+    setInterval(atualizarTempo, 1000);
+    atualizarTempo();
+  </script>
+  
+
+<script src="script.js"></script>
+</body>
+</html>
